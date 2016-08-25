@@ -1103,8 +1103,14 @@ int create_inode(char *pathname, struct inode *i)
 				break;
 			}
 
-			write_xattr(pathname, i->xattr);
-	
+			struct timeval time[2] = { {i->time, 0}, {i->time, 0} };
+
+			if(lutimes(pathname, time) == -1) {
+				ERROR("set_attributes: failed to set time on %s, because %s\n",
+					pathname, strerror(errno));
+				return FALSE;
+			}
+
 			if(root_process) {
 				if(lchown(pathname, i->uid, i->gid) == -1)
 					ERROR("create_inode: failed to change "
@@ -1112,6 +1118,8 @@ int create_inode(char *pathname, struct inode *i)
 						"%s\n", pathname,
 						strerror(errno));
 			}
+
+			write_xattr(pathname, i->xattr);
 
 			sym_count ++;
 			break;
