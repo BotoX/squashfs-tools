@@ -3856,7 +3856,7 @@ printOptions:
 	destination_file = argv[source + 1];
 	if(stat(argv[source + 1], &buf) == -1) {
 		if(errno == ENOENT) { /* Does not exist */
-			if((fd = open(argv[source + 1], O_CREAT | O_TRUNC | O_RDWR, S_IRWXU)) == -1) {
+			if((fd = open(argv[source + 1], O_CREAT | O_TRUNC | O_RDWR, S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH)) == -1) {
 				perror("Could not create destination file");
 				exit(1);
 			}
