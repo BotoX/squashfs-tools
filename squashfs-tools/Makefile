@@ -26,7 +26,7 @@ GZIP_SUPPORT = 1
 # To build using XZ Utils liblzma - install the library and uncomment
 # the XZ_SUPPORT line below.
 #
-#XZ_SUPPORT = 1
+XZ_SUPPORT = 1
 
 
 ############ Building LZO support ##############
@@ -37,7 +37,7 @@ GZIP_SUPPORT = 1
 # LZO_SUPPORT line below. If needed, uncomment and set LZO_DIR to the
 # installation prefix.
 #
-#LZO_SUPPORT = 1
+LZO_SUPPORT = 1
 #LZO_DIR = /usr/local
 
 
@@ -51,7 +51,7 @@ GZIP_SUPPORT = 1
 # install and uncomment
 # the LZ4_SUPPORT line below.
 #
-#LZ4_SUPPORT = 1
+LZ4_SUPPORT = 1
 
 
 ########### Building LZMA support #############
@@ -71,7 +71,7 @@ GZIP_SUPPORT = 1
 # work) - download and unpack it, uncomment and set LZMA_DIR to unpacked source,
 # and uncomment the LZMA_SUPPORT line below.
 #
-#LZMA_XZ_SUPPORT = 1
+LZMA_XZ_SUPPORT = 1
 #LZMA_SUPPORT = 1
 #LZMA_DIR = ../../../../LZMA/lzma465
 
